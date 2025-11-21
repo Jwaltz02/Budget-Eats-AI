@@ -16,6 +16,6 @@ Budget-Eats-AI is actively being expanded to support:
 - Cross-platform comparison
 - Finding the cheapest option for a specific craving (e.g., “XL pizza”) across all delivery apps
 
-#Project Goal:
+# Project Goal:
 To become a smart food-savings assistant that compares menus across all major delivery services and automatically finds the best possible deal for the user.
 
