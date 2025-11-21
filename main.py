@@ -11,11 +11,13 @@ load_dotenv()
 llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
 
 query = input("I will find you the cheapest meal.\nPlease paste a URL to the restaurant menu: ")
+query2 = input("What type of food are you craving? ")
 
 system_prompt = """
 You are a price comparison assistant.
 
-I need you to scrape a restaurant webpage (that the user provides a URL to) using the `scrape_menu` tool. 
+I need you to scrape a restaurant webpage (that the user provides a URL to) using the `scrape_menu` tool. The user will provide the type of food they're craving
+to you as well, and you need to find the cheapest main dish + drink combination on the menu that matches their cravings.
 
 Given a user request, you may:
 - call scrape_menu(url) to get the entire menu from the URL.
@@ -37,7 +39,7 @@ agent = create_agent(
 result_state = agent.invoke(
     {
         "messages": [
-            {"role": "user", "content" : query}
+            {"role": "user", "content" : f"{query} and {query2}"}
         ]
     }
 )
