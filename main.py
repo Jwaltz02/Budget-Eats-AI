@@ -10,15 +10,12 @@ load_dotenv()
 
 llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
 
-query = input("What would you like to compare? ")
-# response = llm.invoke(query)
-# print(response)
+query = input("I will find you the cheapest meal.\nPlease paste a URL to the restaurant menu: ")
 
 system_prompt = """
 You are a price comparison assistant.
 
 I need you to scrape a restaurant webpage (that the user provides a URL to) using the `scrape_menu` tool. 
-
 
 Given a user request, you may:
 - call scrape_menu(url) to get the entire menu from the URL.
@@ -27,7 +24,6 @@ Given a user request, you may:
 - Return to the user the name of the restaurant, the cheapest main dish + drink combination and the total price in this format: 
   restaurant name: main dish ($price) + drink ($price) -> Total: $total_price
 - If a drink is included with the main dish, mention it in your response, e.g. "main dish (includes drink)".
-
 """
 
 tools = [scrape_menu]

@@ -13,7 +13,7 @@ def scrape_menu(url: str) -> str:
     tt = Html2TextTransformer()
     docs = tt.transform_documents(loader.load())
 
-    # 2. Split into chunks
+    # 2. Split text into chunks
     ts = RecursiveCharacterTextSplitter(chunk_size=10000, chunk_overlap=0)
     fd = ts.split_documents(docs)
 
